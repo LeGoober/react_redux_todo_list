@@ -1,16 +1,13 @@
-// Import the functions you need from the SDKs you need
+// Import required Firebase modules
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from "firebase/firestore"; // Ensure Firestore is imported
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAFEwnn75dlQ2HGIppTYJ45aDfM2dmQvU8",
-  authDomain: "todo-app-d088f.firebaseapp.com",
-  projectId: "todo-app-d088f",
-  storageBucket: "todo-app-d088f.firebasestorage.app",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: "todo-app-d088f.appspot.com", // Fix potential typo here
   messagingSenderId: "994038462275",
   appId: "1:994038462275:web:01861356de3561431ee1f6",
   measurementId: "G-WXKH6SRK74"
@@ -18,4 +15,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const db = getFirestore(app); // Initialize Firestore
+
+// Export db so it can be imported in firebaseFunctions.js
+export { db };
