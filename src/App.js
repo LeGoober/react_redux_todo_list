@@ -8,6 +8,7 @@ function App() {
       <h1>Todo App</h1>
       <TaskForm />
       <TaskList />
+      <button className="add-task-btn">+</button>
     </div>
   );
 }
