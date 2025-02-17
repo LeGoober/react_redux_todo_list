@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTask } from "../redux/taskSlice";
 import { addTaskToFirebase } from "../firebase/firebaseFunctions";
+import "./TaskForm.css";
 
 const TaskForm = () => {
   const [task, setTask] = useState("");
@@ -18,7 +19,7 @@ const TaskForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="task-form" onSubmit={handleSubmit}>
       <input
         type="text"
         value={task}

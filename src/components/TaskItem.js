@@ -1,6 +1,8 @@
+import React from "react";
 import { FaCheckCircle, FaEdit, FaTrash } from "react-icons/fa";
+import "./TaskItem.css";
 
-function TaskItem({ task, onComplete, onEdit, onDelete }) {
+const TaskItem = ({ task, onComplete, onEdit, onDelete }) => {
   return (
     <div className="task-item">
       <span className="task-title">{task.title}</span>
@@ -15,4 +17,6 @@ function TaskItem({ task, onComplete, onEdit, onDelete }) {
       </button>
     </div>
   );
-}
+};
+
+export default TaskItem;

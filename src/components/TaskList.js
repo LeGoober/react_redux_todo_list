@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getTasksFromFirebase, deleteTaskFromFirebase } from "../firebase/firebaseFunctions";
 import { deleteTask } from "../redux/taskSlice";
-import { deleteTaskFromFirebase, getTasksFromFirebase } from "../firebase/firebaseFunctions";
+import TaskItem from "./TaskItem";
+import "./TaskList.css";
 
 const TaskList = () => {
-  const dispatch = useDispatch();
   const [tasks, setTasks] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -21,15 +23,28 @@ const TaskList = () => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
+  const handleComplete = (id) => {
+    // Add complete functionality as needed.
+    console.log("Complete task", id);
+  };
+
+  const handleEdit = (id) => {
+    // Add edit functionality as needed.
+    console.log("Edit task", id);
+  };
+
   return (
-    <ul>
+    <div className="task-list">
       {tasks.map((task) => (
-        <li key={task.id}>
-          {task.title}
-          <button onClick={() => handleDelete(task.id)}>Delete</button>
-        </li>
+        <TaskItem
+          key={task.id}
+          task={task}
+          onComplete={handleComplete}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+        />
       ))}
-    </ul>
+    </div>
   );
 };
 

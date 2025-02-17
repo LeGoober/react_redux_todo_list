@@ -1,0 +1,32 @@
+/* TaskForm.css */
+.task-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .task-form input {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+  }
+  
+  .task-form button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #fdd835;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #000;
+  }
+  
+  .task-form button:hover {
+    background-color: #ffeb3b;
+  }
+  
